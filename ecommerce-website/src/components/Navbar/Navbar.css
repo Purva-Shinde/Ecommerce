@@ -1,0 +1,84 @@
+@import "../../App.css";
+
+.navbar {
+    padding: 16px 0 0 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+.container {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+ 
+.navbar-brand{
+    font-size: 20px;
+    font-weight: 700;
+}
+.navbar-btns .add-to-cart-btn {
+    margin-right: 28px;
+    color: #63766b;
+}
+.navbar .navbar-bottom .navbar-show-btn {
+    transition: all 300ms linear;
+    display: none;
+}
+.navbar .navbar-bottom {
+    padding: 10px 0;
+    margin-top: 14px;
+}
+.navbar .navbar-bottom  .container {
+    justify-content: flex-end;
+}
+@media screen and (max-width: 992px){
+    .nav-links{
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 280px;
+        background-color: white;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        flex-direction: column;
+        align-items: flex-start;
+        padding-top: 60px;
+        padding-left: 16px;
+        transform: translateX(100%);
+         z-index: 999;
+    }
+      .nav-links li{
+            margin-bottom: 10px!important;
+            border-bottom: 0.5px solid rgba(0, 0, 0, 0.05);
+       }
+            .nav-link{
+                color:#103755 ;
+                font-size: 14px!important;
+            }
+      
+    
+    .show-nav-links{
+        transform: translateX(0);
+    }
+    .navbar-show-btn{
+        display: block!important;
+    }
+    .navbar-hide-btn{
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 16px;
+        width: 24px;
+        height: 24px;
+        background-color: black;
+        border-radius: 50%;
+        display: flex!important;
+        align-items: center;
+        justify-content: center;
+    }
+}
+@media screen and (max-width: 768px){
+    .navbar-top .navbar-search{
+            display: none;
+        }
+   
+}
+ 
