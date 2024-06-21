@@ -29,6 +29,12 @@
 .navbar .navbar-bottom  .container {
     justify-content: flex-end;
 }
+.navbar .navbar-bottom .navbar-hide-btn {
+    display: none;
+}
+.navbar .navbar-bottom .nav-links li {
+    margin: 0 10px;
+}
 @media screen and (max-width: 992px){
     .nav-links{
         position: fixed;

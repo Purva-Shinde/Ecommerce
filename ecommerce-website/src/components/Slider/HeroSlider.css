@@ -1,0 +1,32 @@
+.hero-slider {
+    width: 100%;
+     margin: 0 auto;
+  }
+  
+  .hero-slider .hero-slider-item img {
+    width: 100%;
+    height: auto;
+   }
+  
+  .hero-slider .slick-dots {
+    bottom: 20px;
+  }
+  
+  .hero-slider .slick-dots li button:before {
+    color: white;
+  }
+  
+  .hero-slider .slick-dots li.slick-active button:before {
+    color: gold;
+  }
+  
+  .hero-slider .slick-prev,
+  .hero-slider .slick-next {
+    z-index: 1;
+  }
+  
+  .hero-slider .slick-prev:before,
+  .hero-slider .slick-next:before {
+    color: white;
+  }
+  
