@@ -1,5 +1,5 @@
 import Home from  './HomePage/HomePage';
 import Category from './CategoryPage/CategoryPage';
-import Card from './CardPage/CardPage';
+import Cart from './CartPage/CartPage';
 
-export {Home, Category, Card}
+export {Home, Category, Cart}

@@ -1,43 +1,37 @@
 import { createSlice } from "@reduxjs/toolkit";
-// import { BASE_URL } from "../../utils/apiURL.js";
-import { STATUS } from "../../utils/status.js";
- 
-const categorySlice = createSlice({
-    name:'category',
-    initialState:{
-        data:[],
-        status:STATUS.IDLE,
-        catProductAll:[],
-        catproductAllStatus:STATUS.IDLE,
-        catproductsingle:[],
-        catproductsinglestatus:STATUS.IDLE
-    },
+import { STATUS } from "../../utils/status";
 
-    reducers:{
-        setCategories(state,action){
-            state.data =action.payload;
+const categorySlice = createSlice({
+    name: 'category',
+    initialState: {
+        data: [],
+        status: STATUS.IDLE,
+        catProductAll: {},
+        catProductAllStatus: STATUS.IDLE,
+        catProductSingle: [],
+        catProductSingleStatus: STATUS.IDLE
+    },
+    reducers: {
+        setCategories(state, action) {
+            state.data = action.payload;
         },
-        setStatus(state,action){
-            state.status= action.payload;
+        setStatus(state, action) {
+            state.status = action.payload;
         },
-        setCategoriesProductAll(state,action){
-        state.catProductAll = action.payload;
-},
-        setCategoriesStatusAll(state, action){
+        setCategoriesProductAll(state, action) {
+            state.catProductAll[action.payload.categoryID] = action.payload.products;
+        },
+        setCategoriesStatusAll(state, action) {
             state.catProductAllStatus = action.payload;
         },
-        setCategoriesProductSingle(state, action){
+        setCategoriesProductSingle(state, action) {
             state.catProductSingle = action.payload;
         },
-        setCategoriesStatusSingle(state, action){
+        setCategoriesStatusSingle(state, action) {
             state.catProductSingleStatus = action.payload;
         }
     }
-
 });
-
-
- 
 
 export const {
     setCategories,
@@ -49,43 +43,39 @@ export const {
 } = categorySlice.actions;
 export default categorySlice.reducer;
 
-
-
 export const fetchCategories = () => {
-    debugger
-    return async function fetchCategoryThunk(dispatch){
+    return async function fetchCategoryThunk(dispatch) {
         dispatch(setStatus(STATUS.LOADING));
-        try{
-            const response = await fetch("https://api.escuelajs.co/api/v1/categories");
-            console.log('response', response)
+        try {
+            const response = await fetch(`https://api.escuelajs.co/api/v1/categories`);
             const data = await response.json();
             dispatch(setCategories(data.slice(0, 5)));
             dispatch(setStatus(STATUS.IDLE));
-        } catch(error){
+        } catch (error) {
             dispatch(setStatus(STATUS.ERROR));
         }
     }
 }
 
-
 export const fetchProductsByCategory = (categoryID, dataType) => {
-    return async function fetchCategoryProductThunk(dispatch){
-        if(dataType === 'all') dispatch(setCategoriesStatusAll(STATUS.LOADING));
-        if(dataType === 'single') dispatch(setCategoriesStatusSingle(STATUS.LOADING));
-        
-        try{
+    return async function fetchCategoryProductThunk(dispatch) {
+        if (dataType === 'all') dispatch(setCategoriesStatusAll(STATUS.LOADING));
+        if (dataType === 'single') dispatch(setCategoriesStatusSingle(STATUS.LOADING));
+
+        try {
             const response = await fetch(`https://api.escuelajs.co/api/v1/categories/${categoryID}/products`);
             const data = await response.json();
-            if(dataType === 'all'){
-                dispatch(setCategoriesProductAll(data.slice(0, 5)));
+            if (dataType === 'all') {
+                dispatch(setCategoriesProductAll({ categoryID, products: data.slice(0, 10) }));
                 dispatch(setCategoriesStatusAll(STATUS.IDLE));
             }
-            if(dataType === 'single'){
-                dispatch(setCategoriesProductSingle(data.slice(0, 10)));
+            if (dataType === 'single') {
+                dispatch(setCategoriesProductSingle(data.slice(0, 20)));
                 dispatch(setCategoriesStatusSingle(STATUS.IDLE));
-            }                       
-        } catch(error){                      
-            dispatch(setCategoriesStatusAll(STATUS.ERROR));
+            }
+        } catch (error) {
+            if (dataType === 'all') dispatch(setCategoriesStatusAll(STATUS.ERROR));
+            if (dataType === 'single') dispatch(setCategoriesStatusSingle(STATUS.ERROR));
         }
-    }            
+    }
 }

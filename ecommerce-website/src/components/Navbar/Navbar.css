@@ -9,7 +9,39 @@
     margin: 0 auto;
     padding: 0 2rem;
 }
- 
+ .cart-count-value{
+    position: absolute;
+    top: 13px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #eeb808;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    font-size: 14px;
+    color: #000;
+    opacity: 0.8;
+    font-weight: 500;
+ }
+ .navbar-search input {
+    width: 100%;
+    border: 0.5px solid rgba(0, 0, 0, 0.05);
+    color: #707b8e;
+    height: 44px;
+    padding: 4px 16px;
+    border-radius: 3px 0 0 3px;
+}
+.navbar-search .navbar-search-btn {
+    width: 60px;
+    height: 44px;
+    background-color: #eeb808;
+    color: #fff;
+    transition: all 300ms linear;
+}
+.navbar-search .navbar-search-btn:hover {
+    background-color: #103755;
+}
 .navbar-brand{
     font-size: 20px;
     font-weight: 700;

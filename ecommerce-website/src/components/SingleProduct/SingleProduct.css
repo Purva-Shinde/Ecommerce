@@ -1,0 +1,81 @@
+@import "../../App.css";
+.overlay-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 99; }
+  
+  .product-details-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border-radius: 4px;
+    padding: 36px 24px;
+    width: 72%;
+    max-width: 920px; 
+}
+    .product-details-modal .modal-close-btn {
+      position: absolute;
+      right: -12px;
+      top: -12px;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%; 
+      background: black;
+    color: white;
+    }
+    .product-details-modal .details-content {
+      overflow-y: scroll;
+      row-gap: 32px;
+      height: 70vh; 
+    }
+
+      .product-details-modal .details-content .details-right .details-img {
+        max-width: 500px; 
+    }
+
+      .product-details-modal .details-content .details-left .description {
+        margin: 6px 0 12px 0; 
+    }
+
+      .product-details-modal .details-content .details-left .price {
+        opacity: 0.7;
+        padding-bottom: 6px; 
+    }
+
+      .product-details-modal .details-content .details-left .qty {
+        margin-top: 20px; 
+    }
+
+        .product-details-modal .details-content .details-left .qty-text {
+          margin-right: 10px; 
+        }
+
+        .product-details-modal .details-content .details-left .qty-change .qty-inc, .product-details-modal .details-content .details-left .qty-change .qty-dec {
+          width: 32px;
+          height: 32px; 
+        }
+
+        .product-details-modal .details-content .details-left .qty-change .qty-value {
+          width: 40px; 
+        }
+
+      .product-details-modal .details-content .details-left .add-to-cart-btn {
+        margin-top: 22px;
+    }
+
+
+      @media screen and (min-width: 800px) {
+
+        .product-details-modal .details-content {
+          grid-template-columns: repeat(2, 1fr);
+          column-gap: 40px;
+          height: auto; }
+         }
+  

@@ -19,6 +19,10 @@
  h1, h2, h3, h4, h5, h6 {
 	 letter-spacing: var(--spacing);
 	 text-transform: capitalize;
+	 margin: 0px;
+}
+.py-3{
+	padding: 30px;
 }
  img {
 	 width: 100%;

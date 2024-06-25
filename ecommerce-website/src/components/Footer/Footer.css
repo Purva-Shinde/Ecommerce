@@ -1,0 +1,22 @@
+@import "../../App.css";
+
+.footer .footer-content {
+    row-gap: 20px; }
+    .footer .footer-content .footer-item ul li {
+      margin: 0.7rem 0;
+      opacity: 0.8; }
+      .footer .footer-content .footer-item ul li:hover {
+        opacity: 1; }
+    .footer .footer-content .footer-item:nth-child(4) ul li span:first-child {
+      margin-right: 8px; }
+    @media screen and (min-width: 768px) {
+      .footer .footer-content {
+        grid-template-columns: repeat(2, 1fr); }
+        .footer .footer-content .footer-item {
+          text-align: left; } }
+    @media screen and (min-width: 992px) {
+      .footer .footer-content {
+        grid-template-columns: repeat(4, 1fr); }
+        .footer .footer-content .footer-item {
+          text-align: left; } }
+  
