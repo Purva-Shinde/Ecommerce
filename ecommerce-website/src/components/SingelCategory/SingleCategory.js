@@ -8,6 +8,7 @@ import SingleProduct from '../SingleProduct/SingleProduct';
 import { useSelector, useDispatch } from 'react-redux';
 
 const SingleCategory = ({products, status}) => {
+    console.log("products_____",products)
     const dispatch = useDispatch();
     const {isModalVisible} = useSelector((state) => state.modal);
     const viewModalHandler = (data) => {

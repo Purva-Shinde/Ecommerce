@@ -27,10 +27,10 @@ const HomePage=()=> {
       <Category categories = {categories} status = {categoryStatus} />
       <ProductList  products = {products} status = {productStatus}/> 
       <section>
-        { productsByCategory[1] && <SingleCategory products = {productsByCategory[1]} status = {catProductAllStatus} /> }
+        { productsByCategory[0] && <SingleCategory products = {productsByCategory[0]} status = {catProductAllStatus} /> }
       </section>
       <section>
-        { productsByCategory[2]&& <SingleCategory products = {productsByCategory[2]} status = {catProductAllStatus} /> }
+        { productsByCategory[1]&& <SingleCategory products = {productsByCategory[1]} status = {catProductAllStatus} /> }
       </section>
       
     </div>
